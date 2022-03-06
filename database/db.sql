@@ -37,24 +37,19 @@ ALTER TABLE links
 
 	DESCRIBE links;
 
--- Table for links
-CREATE TABLE enlaces (
+-- Table for todos
+CREATE TABLE todos (
 	id INT(11) NOT NULL,
-	title VARCHAR(150) NOT NULL,
-	url VARCHAR(255) NOT NULL,
-	description TEXT,
+	content VARCHAR(150),
 	user_id INT(11),
 	created_at timestamp NOT NULL DEFAULT current_timestamp,
-  	CONSTRAINT fs_user FOREIGN KEY(user_id) REFERENCES users(id)
+	CONSTRAINT fl_user FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
-ALTER TABLE enlaces
+ALTER TABLE todos
 	ADD PRIMARY KEY (id);
 
-ALTER TABLE enlaces
+ALTER TABLE todos
 	MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 
-ALTER TABLE enlaces
-	ADD file_src TEXT;
-
-DESCRIBE enlaces;
+DESCRIBE todos;
